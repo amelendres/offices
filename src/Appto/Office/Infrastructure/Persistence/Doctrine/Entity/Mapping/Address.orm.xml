@@ -1,0 +1,12 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+        <embeddable name="Appto\Office\Domain\Address">
+                <embedded name="street" class="Appto\Office\Domain\StreetAddress" use-column-prefix="false"/>
+                <embedded name="city" class="Appto\Office\Domain\City" use-column-prefix="false"/>
+                <embedded name="state" class="Appto\Office\Domain\State" use-column-prefix="false"/>
+                <embedded name="country" class="Appto\Common\Domain\Locale\CountryCode" use-column-prefix="false"/>
+                <embedded name="postalCode" class="Appto\Common\Domain\Locale\PostalCode" use-column-prefix="false"/>
+        </embeddable>
+</doctrine-mapping>

@@ -10,7 +10,7 @@ services:
         ports:
             - "8090:80"
         networks:
-            - devom
+            - appto
         volumes:
             - .:/app:delegated
             - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
@@ -29,7 +29,7 @@ services:
         ports:
             - "9090:9001"
         networks:
-            - devom
+            - appto
         volumes:
             - .:/app:delegated
         env_file:
@@ -43,9 +43,11 @@ services:
         restart: unless-stopped
         ports:
             - "3306:3306"
+        networks:
+            - appto
         environment:
             MYSQL_ROOT_PASSWORD: root
 
 networks:
-    devom:
-        name: devom_net
+    appto:
+        name: appto_net

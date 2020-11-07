@@ -1,22 +1,20 @@
 doctrine:
     dbal:
         # configure these for your database server
-        #        driver: 'pdo_mysql'
-        #        server_version: '5.7'
-        #        charset: utf8mb4
-        #        default_table_options:
-        #            charset: utf8mb4
-        #            collate: utf8mb4_unicode_ci
-        driver: 'pdo_pgsql'
-        charset: utf8
-        server_version: '12.1'
-        #        server_version: '5.7'
+        driver: 'pdo_mysql'
+        server_version: '5.7'
         url: '%env(resolve:DATABASE_URL)%'
-    #        logging:  true
-    #        profiling:  true
+
+#        charset: utf8mb4
+#        default_table_options:
+#            charset: utf8mb4
+#            collate: utf8mb4_unicode_ci
+#        logging:  true
+#        profiling:  true
+
     orm:
         auto_generate_proxy_classes: true
-        naming_strategy: doctrine.orm.naming_strategy.underscore
+#        naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
 
@@ -24,4 +22,10 @@ doctrine:
                 type: xml
                 dir: "%kernel.project_dir%/src/Appto/Common/Infrastructure/Persistence/Doctrine/Mapping"
                 prefix: Appto\Common\Domain
+                is_bundle: false
+
+            office:
+                type: xml
+                dir: "%kernel.project_dir%/src/Appto/Office/Infrastructure/Persistence/Doctrine/Entity/Mapping"
+                prefix: Appto\Office\Domain
                 is_bundle: false

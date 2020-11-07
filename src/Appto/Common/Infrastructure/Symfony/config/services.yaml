@@ -10,3 +10,22 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    #Infrastructure Repository
+    Appto\Office\Infrastructure\Persistence\Doctrine\:
+        resource: '%kernel.project_dir%/src/Appto/Office/Infrastructure/Persistence/Doctrine/{Entity,*Repository.php}'
+        autoconfigure: true
+
+    #Domain Repository
+    Appto\Office\Domain\OfficeRepository: '@Appto\Office\Infrastructure\Persistence\Doctrine\DoctrineOfficeRepository'
+
+    #Application
+    Appto\Office\Application\:
+        resource: '%kernel.project_dir%/src/Appto/Office/Application/{Command,Query}/*.php'
+
+    #API
+    Appto\Office\Infrastructure\UI\Rest\:
+        resource: '%kernel.project_dir%/src/Appto/Office/Infrastructure/UI/Rest/*Controller.php'
+        tags: [ controller.service_arguments ]
+
+
