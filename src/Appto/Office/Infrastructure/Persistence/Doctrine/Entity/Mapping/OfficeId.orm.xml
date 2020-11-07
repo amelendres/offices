@@ -2,10 +2,9 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-
-    <entity name="Appto\Office\Domain\Office" table="office" >
-        <embedded name="id" class="Appto\Office\Domain\OfficeId" use-column-prefix="false"/>
-        <embedded name="name" class="Appto\Office\Domain\OfficeName" use-column-prefix="false"/>
-        <embedded name="address" class="Appto\Office\Domain\Address"/>
-    </entity>
+        <embeddable name="Appto\Office\Domain\OfficeId">
+            <id name="value" type="guid" column="id">
+                <generator strategy="NONE"/>
+            </id>
+        </embeddable>
 </doctrine-mapping>

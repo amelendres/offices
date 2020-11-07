@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Appto\Offices\Infrastructure\Persistence\Doctrine;
+namespace Appto\Office\Infrastructure\Persistence\Doctrine;
 
 use Appto\Office\Infrastructure\Persistence\Doctrine\Entity\DoctrineOfficeEntityRepository;
-use Appto\Offices\Domain\Office;
-use Appto\Offices\Domain\OfficeRepository;
+use Appto\Office\Domain\Office;
+use Appto\Office\Domain\OfficeRepository;
 
 class DoctrineOfficeRepository implements OfficeRepository
 {
+    private DoctrineOfficeEntityRepository $repository;
+
     public function __construct(DoctrineOfficeEntityRepository $doctrineRepository)
     {
         $this->repository = $doctrineRepository;

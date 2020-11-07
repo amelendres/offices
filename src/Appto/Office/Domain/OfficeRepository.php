@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Appto\Offices\Domain;
+namespace Appto\Office\Domain;
 
 interface OfficeRepository
 {
