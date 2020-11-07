@@ -1,0 +1,23 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Appto\Offices\Domain\Office" table="of_office" >
+        <embedded name="id" class="Appto\Offices\Domain\OfficeId" use-column-prefix="false"/>
+        <embedded name="title" class="Appto\Offices\Domain\Title" use-column-prefix="false"/>
+        <embedded name="content" class="Appto\Offices\Domain\Content" use-column-prefix="false"/>
+        <field name="bibleReading" nullable="true"/>
+        <embedded name="audioUrl" class="Appto\Common\Domain\Url\Url"/>
+        <embedded name="authorId" class="Appto\Offices\Domain\AuthorId" use-column-prefix="false"/>
+        <embedded name="publisherId" class="Appto\Offices\Domain\PublisherId" use-column-prefix="false"/>
+        <embedded name="passage" class="Appto\Offices\Domain\Passage"/>
+        <embedded name="status" class="Appto\Offices\Domain\OfficeStatus" use-column-prefix="false"/>
+        <field name="topics"  type="json" nullable="true"/>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="postLoad" method="doctrinePostLoad"/>
+            <lifecycle-callback type="prePersist" method="doctrinePrePersist"/>
+        </lifecycle-callbacks>
+    </entity>
+</doctrine-mapping>
