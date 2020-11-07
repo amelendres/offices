@@ -33,19 +33,18 @@ reload:
 
 # ✅ Tests
 
-test: ## test your application
-	@docker exec -it appto-php make run-tests
+utest: ## test your application
+	@docker exec -it appto-php make run-unit-tests
 
-acceptance: ## Acceptance Test application
+atest: ## Acceptance Test application
 	@docker exec -it appto-php make run-acceptance-tests
 
 
 coverage: ## phpunit code coverage
 	@docker exec -it appto-php make run-coverage
 
-run-tests:
-	mkdir -p tests/_data/coverage/phpunit
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit tests/_data/coverage/phpunit/junit.xml tests
+run-unit-tests:
+	./vendor/bin/phpunit
 
 run-acceptance-tests:
 	vendor/bin/behat --config tests/Acceptance/Appto/behat.yml
@@ -53,6 +52,8 @@ run-acceptance-tests:
 run-coverage:
 	mkdir -p tests/_data/coverage/phpunit
 	./vendor/bin/phpunit --coverage-html tests/_data/coverage/phpunit
+	#./vendor/bin/phpunit --exclude-group='disabled' --log-junit tests/_data/coverage/phpunit/junit.xml tests
+
 
 
 # 🐳 Docker Compose
