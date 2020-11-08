@@ -21,10 +21,20 @@ class DoctrineOfficeRepository implements OfficeRepository
         $this->repository->save($office);
     }
 
+    public function remove(Office $office): void
+    {
+        $this->repository->remove($office);
+    }
+
     public function find(string $officeId) : ?Office
     {
         /** @var null|Office $office */
         $office = $this->repository->find($officeId);
         return $office;
+    }
+
+    public function findAll(): array
+    {
+        return $this->repository->findAll();
     }
 }

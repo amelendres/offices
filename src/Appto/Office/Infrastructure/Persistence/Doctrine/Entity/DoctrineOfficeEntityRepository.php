@@ -21,4 +21,10 @@ class DoctrineOfficeEntityRepository extends ServiceEntityRepository
         $this->registry->getManager()->persist($office);
         $this->registry->getManager()->flush();
     }
+
+    public function remove(Office $office): void
+    {
+        $this->registry->getManager()->remove($office);
+        $this->registry->getManager()->flush();
+    }
 }
