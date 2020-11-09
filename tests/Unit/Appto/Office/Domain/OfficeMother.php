@@ -14,7 +14,7 @@ class OfficeMother extends Mother
     {
         return new Office(
             new OfficeId(self::faker()->uuid),
-            new OfficeName(self::faker()->paragraph),
+            new OfficeName(self::faker()->company),
             AddressMother::random(),
         );
     }

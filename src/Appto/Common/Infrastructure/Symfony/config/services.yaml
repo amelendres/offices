@@ -21,7 +21,7 @@ services:
 
     #Application
     Appto\Office\Application\:
-        resource: '%kernel.project_dir%/src/Appto/Office/Application/{Command,Query}/*.php'
+        resource: '%kernel.project_dir%/src/Appto/Office/Application/{Command,Query,Response}/*.php'
 
     #API
     Appto\Office\Infrastructure\UI\Rest\:

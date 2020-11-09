@@ -16,6 +16,16 @@ class Office
         $this->address = $address;
     }
 
+    public function changeName(OfficeName $officeName): void
+    {
+        $this->name = $officeName;
+    }
+
+    public function changeAddress(Address $address): void
+    {
+        $this->address = $address;
+    }
+
     public function id(): OfficeId
     {
         return $this->id;

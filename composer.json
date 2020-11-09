@@ -31,10 +31,11 @@
 	},
 	"scripts": {
 		"phpunit": "vendor/bin/phpunit --exclude-group='disabled'",
-	    "test": ["@phpunit"],
+		"behat": "vendor/bin/behat --config tests/Acceptance/behat.yml",
+	    "test": ["@phpunit", "@behat"],
 		"auto-scripts": {
 			"cache:clear": "symfony-cmd",
-			"assets:install %PUBLIC_DIR%": "symfony-cmd"
+			"doctrine:fixtures:load -n": "symfony-cmd"
 		}
 	  },
 	"config" : {

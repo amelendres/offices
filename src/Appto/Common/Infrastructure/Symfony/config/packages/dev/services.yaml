@@ -1,0 +1,10 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Appto\Office\Infrastructure\Persistence\Doctrine\Fixture\:
+    public: true
+    resource: '%kernel.project_dir%/src/Appto/Office/Infrastructure/Persistence/Doctrine/Fixture/*Loader.php'
+    tags: [doctrine.fixture.orm]
