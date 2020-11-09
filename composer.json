@@ -32,10 +32,10 @@
 	"scripts": {
 		"phpunit": "vendor/bin/phpunit --exclude-group='disabled'",
 		"behat": "vendor/bin/behat --config tests/Acceptance/behat.yml",
-	    "test": ["@phpunit"],
+	    "test": ["@phpunit", "@behat"],
 		"auto-scripts": {
 			"cache:clear": "symfony-cmd",
-			"assets:install %PUBLIC_DIR%": "symfony-cmd"
+			"doctrine:fixtures:load -n": "symfony-cmd"
 		}
 	  },
 	"config" : {
