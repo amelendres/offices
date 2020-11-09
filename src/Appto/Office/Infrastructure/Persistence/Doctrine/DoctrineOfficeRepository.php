@@ -26,7 +26,7 @@ class DoctrineOfficeRepository implements OfficeRepository
         $this->repository->remove($office);
     }
 
-    public function find(string $officeId) : ?Office
+    public function find(string $officeId): ?Office
     {
         /** @var null|Office $office */
         $office = $this->repository->find($officeId);
@@ -35,6 +35,6 @@ class DoctrineOfficeRepository implements OfficeRepository
 
     public function findAll(): array
     {
-        return $this->repository->findAll();
+        return $this->repository->findAll(['name' => 'ASC']);
     }
 }

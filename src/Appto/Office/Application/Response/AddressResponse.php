@@ -5,15 +5,15 @@ namespace Appto\Office\Application\Response;
 
 class AddressResponse
 {
-    public string $streetAddress;
+    public string $street;
     public string $city;
     public string $state;
     public string $country;
     public string $postalCode;
 
-    public function __construct(string $streetAddress, string $city, string $state, string $country, string $postalCode)
+    public function __construct(string $street, string $city, string $state, string $country, string $postalCode)
     {
-        $this->streetAddress = $streetAddress;
+        $this->street = $street;
         $this->city = $city;
         $this->state = $state;
         $this->country = $country;

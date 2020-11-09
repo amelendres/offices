@@ -9,6 +9,7 @@ use Appto\Office\Application\Definition\AddressDefinition;
 use Appto\Office\Domain\NotFoundOfficeException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -43,7 +44,9 @@ class UpdateOfficeController
                               )
                           ));
         }catch (NotFoundOfficeException $e){
-            throw new NotFoundHttpException(null, $e);
+            throw new NotFoundHttpException($e->getMessage(), $e);
+        } catch (\DomainException $e) {
+            throw new BadRequestHttpException($e->getMessage(), $e);
         }
 
         return new Response(null, Response::HTTP_NO_CONTENT);
