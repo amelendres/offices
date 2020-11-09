@@ -1,0 +1,6 @@
+doctrine:
+    dbal:
+        # configure these for your database server
+        driver: pdo_sqlite
+#        path: '%env(resolve:DATABASE_URL)%'
+        url: '%env(resolve:DATABASE_URL)%'
